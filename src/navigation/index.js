@@ -20,6 +20,7 @@ const NavigationScreen = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
+      
         // screenOptions={{
         //   headerShown: false,
         //   tabBarActiveBackgroundColor: COLOR_BLACK,
@@ -27,32 +28,34 @@ const NavigationScreen = () => {
         //   tabBarActiveTintColor: COLOR_WHITE,
         //   tabBarStyle: { borderTopWidth: 0 }
         // }} 
-        barStyle={{ backgroundColor: COLOR_BLACK, }}
-
+        
+        barStyle={{ backgroundColor: COLOR_BLACK, }} 
+        activeColor="#000000" inactiveColor='#ffffff' 
       >
 
 
         <Tab.Screen name="Home" component={HomeScreen} options={{
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home" color={COLOR_WHITE} size={26} />
-          ),
+          tabBarIcon: ({ color, }) => (
+            <MaterialCommunityIcons name="home" color={color} size={26}/> 
+          ),  
+          
         }} />
 
         <Tab.Screen name="Search" component={SearchScreen} options={{
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="account-search" color={COLOR_WHITE} size={26} />
+            <MaterialCommunityIcons name="text-search" color={color} size={26} />
           ),
         }} />
 
         <Tab.Screen name="Library" component={LibraryScreen} options={{
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="view-gallery" color={COLOR_WHITE} size={26} />
+            <MaterialCommunityIcons name="view-gallery" color={color} size={26} />
           ),
         }} />
 
         <Tab.Screen name="PlayList" component={PlayListScreen} options={{
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="playlist-music" color={COLOR_WHITE} size={26} />
+            <MaterialCommunityIcons name="playlist-music" color={color} size={26} />
           ),
         }} />
 
