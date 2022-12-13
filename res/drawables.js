@@ -1,6 +1,6 @@
 //color codes   
 export const COLOR_BLACK = "#000000";
-export const COLOR_ROSE_WHITE = "#e5bce7"
+export const COLOR_WHITE = "#ffffff"
 
 
 //assets path
