@@ -22,26 +22,26 @@ const NavigationScreen = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
-      
+
         screenOptions={{
           headerShown: false,
           tabBarActiveBackgroundColor: COLOR_BLACK,
           tabBarInactiveBackgroundColor: COLOR_BLACK,
           tabBarActiveTintColor: COLOR_WHITE,
-          tabBarInactiveTintColor:COLOR_ASH_GREY,
+          tabBarInactiveTintColor: COLOR_ASH_GREY,
           tabBarStyle: { borderTopWidth: 0 }
-        }} 
-        
-        // barStyle={{ backgroundColor: COLOR_BLACK, }} 
-        // activeColor="#000000" inactiveColor='#ffffff' 
+        }}
+
+      // barStyle={{ backgroundColor: COLOR_BLACK, }} 
+      // activeColor="#000000" inactiveColor='#ffffff' 
       >
 
 
         <Tab.Screen name="Home" component={HomeScreen} options={{
-          tabBarIcon: ({ color , size}) => (
-            <MaterialCommunityIcons name="home" color={color} size={size}/> 
-          ),  
-          
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="home" color={color} size={size} />
+          ),
+
         }} />
 
         <Tab.Screen name="Search" component={SearchScreen} options={{
