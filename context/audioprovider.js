@@ -1,11 +1,17 @@
-import React, { useEffect, createContext } from "react";
+import React, { useEffect, createContext, useState } from "react";
 import { Alert } from "react-native";
 import * as MediaLibrary from 'expo-media-library'
 
 
 export const AudioContext = createContext()
 
-const AudioPlayer = (props) => {
+const AudioPlayer = ({ children }) => {
+    const [audioFiles, setAudioFiles ] = useState([]);
+
+    useEffect(() => {
+        getPermissions();
+    }, []);
+
 
     permissionAlert = () => {
         Alert.alert("Permission Required", "This app need approval to read audio files for local storage",
@@ -20,20 +26,21 @@ const AudioPlayer = (props) => {
             ])
     }
 
-    getAudioFiles = async () => {
+    const getAudioFiles = async () => {
         let media = await MediaLibrary.getAssetsAsync({
             mediaType: 'audio'
         });
 
-         media = await MediaLibrary.getAssetsAsync({
-            mediaType: 'audio',
-            first:media.totalCount
-        });
+        // media = await MediaLibrary.getAssetsAsync({
+        //     mediaType: 'audio',
+        //     first: media.totalCount
+        // });
+        setAudioFiles(media);
 
-        //console.log(media.assets.length)
+        //console.log(media)
     }
 
-    getPermissions = async () => {
+    const getPermissions = async () => {
         const permission = await MediaLibrary.getPermissionsAsync()
 
         if (permission.granted) {
@@ -57,15 +64,13 @@ const AudioPlayer = (props) => {
         }
     }
 
-    useEffect(() => {
-        getPermissions()
-    }, [])
 
 
     return (
-      <AudioContext.Provider value={{}}>
-        {props.children}
-      </AudioContext.Provider>
+        <AudioContext.Provider value={{ audioFiles}}>
+            {children}
+
+        </AudioContext.Provider>
     )
 }
 

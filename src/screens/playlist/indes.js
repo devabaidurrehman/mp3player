@@ -9,7 +9,7 @@ import { COLOR_BLACK } from '../../../res/drawables';
 export default function PlayList() {
   return (
     <View style={styles.container}>
-      <Text>This is a playlist  screen!</Text>
+      <Text style={{color:"#ffffff"}}>This is a playlist  screen!</Text>
      
     
     </View>
