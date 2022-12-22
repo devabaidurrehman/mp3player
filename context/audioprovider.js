@@ -31,10 +31,10 @@ const AudioPlayer = ({ children }) => {
             mediaType: 'audio'
         });
 
-        // media = await MediaLibrary.getAssetsAsync({
-        //     mediaType: 'audio',
-        //     first: media.totalCount
-        // });
+        media = await MediaLibrary.getAssetsAsync({
+            mediaType: 'audio',
+            first: media.totalCount
+        });
         setAudioFiles(media);
 
         //console.log(media)
